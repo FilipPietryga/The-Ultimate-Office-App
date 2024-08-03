@@ -11,9 +11,13 @@ import { ListElement } from './list-element.model';
 export class ListElementComponent {
   @Input() item: ListElement
   @Output() toggle = new EventEmitter<number>()
+  @Output() delete = new EventEmitter<number>()
 
   onToggle() {
     this.toggle.emit(this.item.id)
   }
 
+  onDelete() {
+    this.delete.emit(this.item.id)
+  }
 }

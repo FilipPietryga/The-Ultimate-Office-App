@@ -1,1 +1,4 @@
-<p>list-element works!</p>
+<div class="list-element">
+  <input type="checkbox" [checked]="item.completed" (change)="onToggle()">
+  <span [class.completed]="item.completed">{{ item.title }}</span>
+</div>
