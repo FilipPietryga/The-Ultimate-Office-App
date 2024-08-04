@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
-import { ListElement } from '../list-item/list-element.model'
+import { Item } from './item/item.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
-  private ListElements: ListElement[] = [];
-  private currentId = 1
+  private items: Item[] = []
+  private id = 1
 
   constructor() { }
 
   getListElements() {
-    return this.ListElements
+    return this.items
   }
 
   addListElement(title: string) {
-    const newElement: ListElement = {id: this.currentId, title: title, completed: false}
-    this.ListElements.push(newElement);
+    const newElement: Item = {id: this.id, title: title, completed: false}
+    this.items.push(newElement);
+    this.id += 1;
   }
 
   toggleListElement(id: number) {
-    const listElement = this.ListElements.find(item => item.id == id) //find list element with a given id
+    const listElement = this.items.find(item => item.id == id)
     if(listElement) {
       listElement.completed = !listElement.completed
     }

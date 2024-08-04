@@ -1,15 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ListElement } from './list-element.model';
+import { Item } from './item.model';
 
 @Component({
-  selector: 'app-list-element',
+  selector: 'list-item',
   standalone: true,
   imports: [],
-  templateUrl: './list-element.component.html',
-  styleUrl: './list-element.component.sass'
+  templateUrl: './item.component.html',
+  styleUrl: './item.component.sass'
 })
-export class ListElementComponent {
-  @Input() item: ListElement
+export class ItemComponent {
+  @Input() item: Item = { id: 0, title: "", completed: false }
   @Output() toggle = new EventEmitter<number>()
   @Output() delete = new EventEmitter<number>()
 

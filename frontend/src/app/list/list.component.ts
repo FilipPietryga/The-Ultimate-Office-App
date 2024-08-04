@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ListElement } from '../list-item/list-element.model';
-import { ListService } from './list.service.ts';
+import { Item } from './item/item.model';
+import { ListService } from './list.service';
+import { CommonModule } from '@angular/common';
+import { ItemComponent } from './item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule, ItemComponent, FormsModule],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.sass'
+  styleUrl: './list.component.sass' 
 })
 export class ListComponent implements OnInit {
-  items: ListElement[] = []
-  newTitle = ''
+  items: Item[] = []
+  title = ''
 
   constructor(private listService: ListService) {}
 
-  OnInit() {
+  ngOnInit() {
     this.items = this.listService.getListElements()
   }
 
   addItem() {
-    if(this.newTitle.trim()) {
-      this.listService.addListElement(this.newTitle)
-      this.newTitle = ''
+    if(this.title.trim()) {
+      this.listService.addListElement(this.title)
+      this.title = ''
       this.items = this.listService.getListElements()
     }
   }
