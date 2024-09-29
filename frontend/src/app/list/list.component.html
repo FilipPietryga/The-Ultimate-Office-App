@@ -5,7 +5,8 @@
 
     <list-item *ngFor="let item of items"
                     [item]="item"
-                    (toggle)="toggleItem($event)">
+                    (toggle)="toggleItem($event)"
+                    (delete)="deleteItem($event)">
     </list-item>
 </div>
 

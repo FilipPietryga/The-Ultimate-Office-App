@@ -35,4 +35,9 @@ export class ListComponent implements OnInit {
     this.listService.toggleListElement(id)
     this.items = this.listService.getListElements()
   }
+  
+  deleteItem(id: number) {
+    this.listService.deleteListElement(id)
+    this.items = this.listService.getListElements()
+  }
 }

@@ -16,8 +16,8 @@ export class ListService {
 
   addListElement(title: string) {
     const newElement: Item = {id: this.id, title: title, completed: false}
-    this.items.push(newElement);
-    this.id += 1;
+    this.items.push(newElement)
+    this.id += 1
   }
 
   toggleListElement(id: number) {
@@ -25,5 +25,11 @@ export class ListService {
     if(listElement) {
       listElement.completed = !listElement.completed
     }
+  }
+  
+  deleteListElement(id: number) {
+    console.log("delete")
+    const newList = this.items.filter(item => item.id != id)
+    this.items = newList
   }
 }
