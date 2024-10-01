@@ -9,9 +9,10 @@ import { Item } from './item.model';
   styleUrl: './item.component.sass'
 })
 export class ItemComponent {
-  @Input() item: Item = { id: 0, title: "", completed: false }
+  @Input() item: Item = { id: 0, title: "clean the room", deadline: "01.10.2024", priority: "important", completed: false, urgent: false }
   @Output() toggle = new EventEmitter<number>()
   @Output() delete = new EventEmitter<number>()
+  @Output() urgent = new EventEmitter<number>()
 
   onToggle() {
     this.toggle.emit(this.item.id)
@@ -19,5 +20,9 @@ export class ItemComponent {
 
   onDelete() {
     this.delete.emit(this.item.id)
+  }
+
+  onUrgent() {
+    this.urgent.emit(this.item.id)
   }
 }

@@ -1,5 +1,9 @@
 <div class="list-element">
   <input type="checkbox" [checked]="item.completed" (change)="onToggle()">
-  <span [class.completed]="item.completed">{{ item.title }}</span>
+  <input type="button" (click)="onUrgent()" value="urgent">
+  
+  <span [class.urgent]="item.urgent" [class.completed]="item.completed">{{ item.title }}</span>
+  <span [class.urgent]="item.urgent" [class.completed]="item.completed"> up to: {{ item.deadline }}</span>
+  <span [class.urgent]="item.urgent" [class.completed]="item.completed"> with priority: {{ item.priority }}</span>
   <input type="button" (click)="onDelete()" value="remove">
 </div>

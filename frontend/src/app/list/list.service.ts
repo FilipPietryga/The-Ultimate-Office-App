@@ -14,8 +14,8 @@ export class ListService {
     return this.items
   }
 
-  addListElement(title: string) {
-    const newElement: Item = {id: this.id, title: title, completed: false}
+  addListElement(title: string, deadline: string, priority: string) {
+    const newElement: Item = {id: this.id, title: title, priority: priority, completed: false, urgent: false, deadline: deadline}
     this.items.push(newElement)
     this.id += 1
   }
@@ -31,5 +31,12 @@ export class ListService {
     console.log("delete")
     const newList = this.items.filter(item => item.id != id)
     this.items = newList
+  }
+
+  urgentListElement(id: number) {
+    const listElement = this.items.find(item => item.id == id)
+    if(listElement) {
+      listElement.urgent = !listElement.urgent
+    }
   }
 }

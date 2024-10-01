@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 export class ListComponent implements OnInit {
   items: Item[] = []
   title = ''
+  deadline = ''
+  priority = ''
 
   constructor(private listService: ListService) {}
 
@@ -25,7 +27,7 @@ export class ListComponent implements OnInit {
 
   addItem() {
     if(this.title.trim()) {
-      this.listService.addListElement(this.title)
+      this.listService.addListElement(this.title, this.deadline, this.priority)
       this.title = ''
       this.items = this.listService.getListElements()
     }
@@ -38,6 +40,11 @@ export class ListComponent implements OnInit {
   
   deleteItem(id: number) {
     this.listService.deleteListElement(id)
+    this.items = this.listService.getListElements() 
+  }
+  
+  urgentItem(id: number) {
+    this.listService.urgentListElement(id)
     this.items = this.listService.getListElements()
   }
 }
