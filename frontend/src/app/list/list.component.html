@@ -3,12 +3,12 @@
     <input [(ngModel)]="title" placeholder="New item">
     <button (click)="addItem()">Add</button>
 
-    <list-item *ngFor="let item of items"
+    <item *ngFor="let item of items"
                     [item]="item"
                     (toggle)="toggleItem($event)"
                     (delete)="deleteItem($event)"
                     (urgent)="urgentItem($event)">
-    </list-item>
+    </item>
 </div>
 
 <router-outlet />

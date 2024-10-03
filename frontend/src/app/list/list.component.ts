@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { Item } from './item/item.model';
-import { ListService } from './list.service';
-import { CommonModule } from '@angular/common';
-import { ItemComponent } from './item/item.component';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { Item } from './item/item.model'
+import { ListService } from './list.service'
+import { CommonModule } from '@angular/common'
+import { ItemComponent } from './item/item.component'
+import { FormsModule } from '@angular/forms'
 
 @Component({
-  selector: 'app-list',
+  selector: 'list',
   standalone: true,
   imports: [RouterModule, CommonModule, ItemComponent, FormsModule],
   templateUrl: './list.component.html',
