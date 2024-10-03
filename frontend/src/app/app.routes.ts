@@ -6,5 +6,5 @@ import { BoardComponent } from './board/board.component';
 export const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'callendar', component: CallendarComponent },
-  { path: 'canban', component: BoardComponent },
+  { path: 'board', component: BoardComponent },
 ]

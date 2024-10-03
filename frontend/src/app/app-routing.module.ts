@@ -7,7 +7,7 @@ import { BoardComponent } from './board/board.component'
 const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'callendar', component: CallendarComponent },
-  { path: 'canban', component: BoardComponent },
+  { path: 'board', component: BoardComponent },
   { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: '**', redirectTo: '/list' }
 ];
