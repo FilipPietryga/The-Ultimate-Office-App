@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { Item } from './item/item.model'
+import { Task } from './task/task.model'
 import { ListService } from './list.service'
 import { CommonModule } from '@angular/common'
-import { ItemComponent } from './item/item.component'
+import { ItemComponent } from './task/task.component'
 import { FormsModule } from '@angular/forms'
 
 @Component({
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms'
   styleUrl: './list.component.sass' 
 })
 export class ListComponent implements OnInit {
-  items: Item[] = []
+  items: Task[] = []
   title = ''
   deadline = ''
   priority = ''

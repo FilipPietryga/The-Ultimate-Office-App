@@ -8,6 +8,6 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.sass'
 })
-export class MenuComponent {
+export class NavbarComponent {
 
 }

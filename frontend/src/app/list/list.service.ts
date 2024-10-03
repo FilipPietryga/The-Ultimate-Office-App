@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Item } from './item/item.model'
+import { Task } from './task/task.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
-  private items: Item[] = []
+  private items: Task[] = []
   private id = 1
 
   constructor() { }
@@ -15,7 +15,7 @@ export class ListService {
   }
 
   addListElement(title: string, deadline: string, priority: string) {
-    const newElement: Item = {id: this.id, title: title, priority: priority, completed: false, urgent: false, deadline: deadline}
+    const newElement: Task = {id: this.id, title: title, priority: priority, completed: false, urgent: false, deadline: deadline}
     this.items.push(newElement)
     this.id += 1
   }

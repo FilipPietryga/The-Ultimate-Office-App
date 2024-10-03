@@ -1,4 +1,4 @@
-export interface Item {
+export interface Task {
   id: number;
   title: string;
   deadline: string; // introduce date ?

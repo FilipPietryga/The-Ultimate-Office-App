@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'canban',
+  selector: 'board',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './canban.component.html',
-  styleUrl: './canban.component.sass'
+  templateUrl: './board.component.html',
+  styleUrl: './board.component.sass'
 })
-export class CanbanComponent {
+export class BoardComponent {
 
 }

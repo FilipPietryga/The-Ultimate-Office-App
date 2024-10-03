@@ -1,15 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Item } from './item.model';
+import { Task } from './task.model';
 
 @Component({
-  selector: 'list-item',
+  selector: 'item',
   standalone: true,
   imports: [],
-  templateUrl: './item.component.html',
-  styleUrl: './item.component.sass'
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.sass'
 })
 export class ItemComponent {
-  @Input() item: Item = { id: 0, title: "clean the room", deadline: "01.10.2024", priority: "important", completed: false, urgent: false }
+  @Input() item: Task = { id: 0, title: "clean the room", deadline: "01.10.2024", priority: "important", completed: false, urgent: false }
   @Output() toggle = new EventEmitter<number>()
   @Output() delete = new EventEmitter<number>()
   @Output() urgent = new EventEmitter<number>()
