@@ -1,23 +1,52 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TaskComponent } from './task.component';
+import { Task } from './task.model';
 
-import { ItemComponent } from './task.component'
-
-describe('ListElementComponent', () => {
-  let component: ItemComponent
-  let fixture: ComponentFixture<ItemComponent>
+describe('TaskComponent', () => {
+  let component: TaskComponent;
+  let fixture: ComponentFixture<TaskComponent>;
+  let mockTask: Task;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ItemComponent]
-    })
-    .compileComponents()
-    
-    fixture = TestBed.createComponent(ItemComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+      imports: [TaskComponent]
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TaskComponent);
+    component = fixture.componentInstance;
+    mockTask = { id: 1, title: 'Test Task', deadline: '2024-12-31', priority: 'high', completed: false, urgent: false };
+    component.task = mockTask;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
-    expect(component).toBeTruthy()
-  })
-})
+    expect(component).toBeTruthy();
+  });
+
+  it('should emit toggle event when onToggle is called', () => {
+    spyOn(component.toggle, 'emit');
+    component.onToggle();
+    expect(component.toggle.emit).toHaveBeenCalledWith(mockTask.id);
+  });
+
+  it('should emit delete event when onDelete is called', () => {
+    spyOn(component.delete, 'emit');
+    component.onDelete();
+    expect(component.delete.emit).toHaveBeenCalledWith(mockTask.id);
+  });
+
+  it('should emit urgent event when onUrgent is called', () => {
+    spyOn(component.urgent, 'emit');
+    component.onUrgent();
+    expect(component.urgent.emit).toHaveBeenCalledWith(mockTask.id);
+  });
+
+  it('should display task title in the template', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.task-title')?.textContent).toContain(mockTask.title);
+  });
+
+  // Add more tests to cover other aspects of the template and logic if needed
+});

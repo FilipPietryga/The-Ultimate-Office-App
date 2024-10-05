@@ -1,9 +1,20 @@
-<div class="item">
-  <input type="checkbox" [checked]="item.completed" (change)="onToggle()">
-  <input type="button" (click)="onUrgent()" value="urgent">
-  
-  <span [class.urgent]="item.urgent" [class.completed]="item.completed">{{ item.title }}</span>
-  <span [class.urgent]="item.urgent" [class.completed]="item.completed"> up to: {{ item.deadline }}</span>
-  <span [class.urgent]="item.urgent" [class.completed]="item.completed"> with priority: {{ item.priority }}</span>
-  <input type="button" (click)="onDelete()" value="remove">
+<div class="task-card">
+  <div class="task-content">
+    <input type="checkbox" [checked]="task.completed" (change)="onToggle()" class="checkbox">
+    <div class="task-details">
+      <span class="task-title" [class.urgent]="task.urgent" [class.completed]="task.completed">
+        {{ task.title }}
+      </span>
+      <div class="task-meta">
+        <span [class.urgent]="task.urgent" [class.completed]="task.completed">up to: {{ task.deadline }}</span>
+      </div>
+      <div class="task-meta">
+        <span [class.urgent]="task.urgent" [class.completed]="task.completed">with priority: {{ task.priority }}</span>
+      </div>
+    </div>
+    <div class="task-actions">
+      <button (click)="onUrgent()" class="btn-urgent">Urgent</button>
+      <button (click)="onDelete()" class="btn-remove">Remove</button>
+    </div>
+  </div>
 </div>

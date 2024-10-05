@@ -6,12 +6,12 @@
 
     <button (click)="addItem()">Add a task!</button>
 
-    <item *ngFor="let item of items"
-                    [item]="item"
+    <task *ngFor="let task of tasks"
+                    [task]="task"
                     (toggle)="toggleItem($event)"
                     (delete)="deleteItem($event)"
                     (urgent)="urgentItem($event)">
-    </item>
+    </task>
 </div>
 
 <router-outlet />
