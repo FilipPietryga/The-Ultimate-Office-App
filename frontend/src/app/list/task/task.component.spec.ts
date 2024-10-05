@@ -48,5 +48,15 @@ describe('TaskComponent', () => {
     expect(compiled.querySelector('.task-title')?.textContent).toContain(mockTask.title);
   });
 
-  // Add more tests to cover other aspects of the template and logic if needed
+  
+  it('should display task deadline in the template', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.task-deadline')?.textContent).toContain(mockTask.deadline);
+  });
+
+  
+  it('should display task priority in the template', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.task-priority')?.textContent).toContain(mockTask.priority);
+  });
 });

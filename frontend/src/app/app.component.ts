@@ -15,5 +15,4 @@ import { FormsModule } from '@angular/forms'
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'frontend'
 }

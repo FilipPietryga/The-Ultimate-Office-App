@@ -5,10 +5,10 @@
       <span class="task-title" [class.urgent]="task.urgent" [class.completed]="task.completed">
         {{ task.title }}
       </span>
-      <div class="task-meta">
+      <div class="task-deadline task-meta">
         <span [class.urgent]="task.urgent" [class.completed]="task.completed">up to: {{ task.deadline }}</span>
       </div>
-      <div class="task-meta">
+      <div class="task-priority task-meta">
         <span [class.urgent]="task.urgent" [class.completed]="task.completed">with priority: {{ task.priority }}</span>
       </div>
     </div>
