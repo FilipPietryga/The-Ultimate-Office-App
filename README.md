@@ -5,9 +5,4 @@ The app is planned to have:
   - a callendar in which the tasks could be placed
   - a kanban board in which these could be manipulated
 
-All of these should utilize common service for the task manipulation.
-
-Current TODO:
-  - test the todo-list
-  - introduce styling for the todo-list
-  - introduce styling for the interface
+All of these should utilize common services for the task manipulation.
