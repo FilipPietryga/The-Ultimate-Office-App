@@ -49,7 +49,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./My-Personal-Organizer-App/frontend
+        working-directory: frontend
 
       - name: Build project
         run: npm run build -- --prod
