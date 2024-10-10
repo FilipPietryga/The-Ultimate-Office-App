@@ -19,19 +19,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Ensure this matches the version in your .nvmrc or .node-version
+          node-version: '20.13.1' 
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./My-Personal-Organizer-App/frontend
+        working-directory: frontend
 
       - name: Run tests
         run: npm test
-        working-directory: ./My-Personal-Organizer-App/frontend
+        working-directory: frontend
 
       - name: Build project
         run: npm run build -- --prod
-        working-directory: ./My-Personal-Organizer-App/frontend
+        working-directory: frontend
 
   deploy:
     needs: build
@@ -53,7 +53,7 @@ jobs:
 
       - name: Build project
         run: npm run build -- --prod
-        working-directory: ./My-Personal-Organizer-App/frontend
+        working-directory: frontend
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
