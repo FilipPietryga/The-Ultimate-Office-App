@@ -1,19 +1,65 @@
-nav
-    background-color: #f8f9fa
-    padding: 10px
+// Variables
+$navbar-bg-color: #333
+$navbar-text-color: #fff
+$navbar-hover-bg-color: #555
+$navbar-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 
-ul
-    list-style-type: none
-    padding: 0
+// Mixins
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
 
-li
-    display: inline
-    margin-right: 15px
+@mixin transition($property, $duration)
+  transition: $property $duration
 
-a
+// Styles
+.navbar
+  background-color: $navbar-bg-color
+  padding: 1rem
+  color: $navbar-text-color
+  box-shadow: $navbar-shadow
+  margin: 0 // Removed margin from the navbar
+
+.navbar-container
+  @include flex-center
+  justify-content: space-between
+
+.navbar-logo
+  a
+    font-size: 1.5rem
+    color: $navbar-text-color
     text-decoration: none
-    color: #007bff
 
-a.active
-    font-weight: bold
-    color: #0056b3
+.navbar-menu
+  list-style: none
+  @include flex-center
+  margin: 0
+  padding: 0
+
+.navbar-item
+  // margin: 0 1rem // Removed individual margins from navbar items
+  padding: 0 1rem // Added padding instead for spacing
+
+.navbar-link
+  color: $navbar-text-color
+  text-decoration: none
+  padding: 0.5rem 1rem
+  @include transition(background-color, 0.3s)
+
+  &:hover,
+  &.active
+    background-color: $navbar-hover-bg-color
+    border-radius: 4px
+
+// Responsive design
+@media (max-width: 768px)
+  .navbar-container
+    flex-direction: column
+
+  .navbar-menu
+    flex-direction: column
+    width: 100%
+
+  .navbar-item
+    padding: 0.5rem 0
