@@ -19,14 +19,26 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.13.1' 
+          node-version: '20.13.1'
 
       - name: Install dependencies
         run: npm install
         working-directory: frontend
 
+      - name: Print Node.js version
+        run: node -v
+        working-directory: frontend
+
+      - name: Print npm version
+        run: npm -v
+        working-directory: frontend
+
+      - name: Print environment variables
+        run: printenv
+        working-directory: frontend
+
       - name: Run tests
-        run: npm test
+        run: npm test -- --verbose
         working-directory: frontend
 
       - name: Build project
@@ -60,4 +72,4 @@ jobs:
         with:
           app-name: '<YOUR_AZURE_APP_NAME>'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./My-Personal-Organizer-App/frontend/dist/<YOUR_PROJECT_NAME>
+          package: ./My-Personal-Organizer-App/frontend/dist/frontend

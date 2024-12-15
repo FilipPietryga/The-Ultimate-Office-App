@@ -1,10 +1,8 @@
-// Variables
 $navbar-bg-color: #333
 $navbar-text-color: #fff
 $navbar-hover-bg-color: #555
 $navbar-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 
-// Mixins
 @mixin flex-center
   display: flex
   justify-content: center
@@ -13,13 +11,12 @@ $navbar-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 @mixin transition($property, $duration)
   transition: $property $duration
 
-// Styles
 .navbar
   background-color: $navbar-bg-color
   padding: 1rem
   color: $navbar-text-color
   box-shadow: $navbar-shadow
-  margin: 0 // Removed margin from the navbar
+  margin: 0 
 
 .navbar-container
   @include flex-center
@@ -38,8 +35,7 @@ $navbar-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
   padding: 0
 
 .navbar-item
-  // margin: 0 1rem // Removed individual margins from navbar items
-  padding: 0 1rem // Added padding instead for spacing
+  padding: 0 1rem 
 
 .navbar-link
   color: $navbar-text-color
